@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 850px;
+            height: 800px;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid black;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Items</th>
+                <th>Latitude/Longitude</th>
+                <th>Full Details</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result[0] }}</td>
+                <td>{{ result[1] }}</td>
+                <td>{{ result[2] }}</td>
+                <td>{{ result[3] }}</td>
+                <td>{{ result[4] }}</td>
+                <td>{{ result[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

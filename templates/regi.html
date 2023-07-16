@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+  <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="register-form">
+    <form method="post" action="/register"autocomplete="off">
+      <h1>Register</h1>
+      <br>
+      <div>
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" ><br><br>
+      </div>
+      <div>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password"  ><br><br>
+      </div>
+      
+      <div>
+        <label for="country">Country  </label><br>
+        <input type="text" id="country" name="country" required><br><br>
+      </div>
+      <div>
+        <label for="accreate">Account Created </label><br>
+        <input type="date" id="accreate" name="accreate" required><br><br>
+      </div>
+      <button type="submit">Register</button>
+      <button type="button" onclick="window.location.href='/admin'">Login</button>
+      <button type="reset">Cancel</button>
+      {% if error_message %}
+        <p style="color: red;">{{ "Sorry, the user already exists." }}</p>
+      {% endif %}
+      <script>
+        window.addEventListener('load', function() {
+          document.getElementById('username').value = '';
+          document.getElementById('password').value = '';
+        });
+      
+        function resetForm() {
+          document.getElementById('username').value = ' ';
+          document.getElementById('password').value = ' ';
+        }
+      </script>  
+    </form>
+  </div>
+</body>
+
+</html>
